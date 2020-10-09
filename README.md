@@ -21,7 +21,7 @@ This project was done mainly for learning purposes, the aim was to practice usin
 - User can view web content displayed in a responsive grid layout
 
 ## Deployment
-[RestaurantPage app on netlify](https://gracious-johnson-c5af22.netlify.app)
+[RestaurantPage app on heroku](https://resty-meet-and-eat-page.herokuapp.com/)
 
 ## Running and testing it locally
 
