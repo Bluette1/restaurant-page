@@ -1,5 +1,6 @@
 import '../css/index.css';
 import responsiveNavBar from '../../public/js/responsive-nav-master.js/responsive-nav';
+import '../../public/js/responsive-nav-master.js/responsive-nav.css';
 
 const content = document.querySelector('#content');
 const titleStr = document.createElement('h2');
@@ -36,5 +37,4 @@ for (let i = 0; i < navItems.length; i += 1) {
 navList.children[0].className = 'current';
 navElem.setAttribute('class', 'nav-collapse');
 content.appendChild(navElem);
-const nav = responsiveNavBar('.nav-collapse');
-nav.setAttribute('class', 'coloured-item');
+responsiveNavBar('.nav-collapse');
