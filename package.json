@@ -4,7 +4,7 @@
   "description": "Project to set up restaurant page; original specifications can be found at https://www.theodinproject.com/courses/javascript/lessons/restaurant-page ",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode=development",
+    "build": "webpack",
     "watch": "webpack --mode=development --watch",
     "stylelint": "npx stylelint **/*.{css,scss}",
     "stylelint-f": "npx stylelint **/*.{css,scss} --fix",
