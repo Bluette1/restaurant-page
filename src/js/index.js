@@ -6,10 +6,9 @@ import menuContent from './menu';
 import contactContent from './contact';
 
 const content = document.querySelector('#content');
+const pageTitle = document.querySelector('#title');
+const pageDiv = document.querySelector('#background');
 const titleStr = document.createElement('h2');
-titleStr.textContent = 'Eat Well Shade';
-titleStr.setAttribute('class', 'title');
-content.appendChild(titleStr);
 
 const navItems = [
   { content: homeContent, text: 'Home' },
@@ -30,18 +29,22 @@ for (let i = 0; i < navItems.length; i += 1) {
   const pageContent = navItems[i].content;
   navItem.setAttribute('class', 'nav-item');
 
-  navItem.addEventListener('click', () => {
+  navItem.onclick = () => {
     clear();
     pageContent(content);
-  });
+  };
   navList.appendChild(navItem);
 }
 
 navList.children[0].className = 'current';
-navElem.setAttribute('class', 'nav-collapse');
-content.appendChild(navElem);
+navElem.setAttribute('class', 'nav-collapse nav-element');
+document.body.insertBefore(titleStr, content);
+titleStr.textContent = 'Eat Well Shade';
+titleStr.setAttribute('class', 'title');
+titleStr.after(navElem);
+homeContent(content);
 responsiveNavBar('.nav-collapse');
 
 const clear = () => {
-  content.innerHTml = '';
+  content.textContent = '';
 }

@@ -1,8 +1,10 @@
 const menuContent = (content) => {
-  // function that creates a div element, adds the appropriate content
-  // and styles to that element and then appends it to the DOM.
   const divEl = document.createElement('div');
-  divEl.textContent = 'Menu Page';
+  const menuTitle = document.createElement('h4');
+  menuTitle.textContent = 'Browse through our delicious meals';
+  menuTitle.setAttribute('class', 'menu-title');
+  content.appendChild(menuTitle);
+  divEl.setAttribute('class', 'menu-background');
   content.appendChild(divEl)
 
 }

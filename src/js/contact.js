@@ -1,8 +1,11 @@
 const contactContent = (content) => {
-  // function that creates a div element, adds the appropriate content
-  // and styles to that element and then appends it to the DOM.
+
+  const contactTitle = document.createElement('h4');
+  contactTitle.textContent = '+27 7875 090 123';
+  contactTitle.setAttribute('class', 'contact-title');
+  content.appendChild(contactTitle);
   const divEl = document.createElement('div');
-  divEl.textContent = 'Contact Page';
+  divEl.setAttribute('class', 'contact-background');
   content.appendChild(divEl)
 
 }

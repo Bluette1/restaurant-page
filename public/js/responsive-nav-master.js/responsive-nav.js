@@ -7,15 +7,15 @@
  */
 
 /* global Event */
-(function (document, window, index) {
+(function(document, window, index) {
   // Index is used to keep multiple navs on the same page namespaced
 
   "use strict";
 
-  var responsiveNav = function (el, options) {
+  var responsiveNav = function(el, options) {
 
     var computed = !!window.getComputedStyle;
-    
+
     /**
      * getComputedStyle polyfill for old browsers
      */
@@ -28,7 +28,7 @@
             prop = "styleFloat";
           }
           if (re.test(prop)) {
-            prop = prop.replace(re, function () {
+            prop = prop.replace(re, function() {
               return arguments[2].toUpperCase();
             });
           }
@@ -38,7 +38,7 @@
       };
     }
     /* exported addEvent, removeEvent, getChildren, setAttributes, addClass, removeClass, forEach */
-    
+
     /**
      * Add Event
      * fn arg can be an object or a function, thanks to handleEvent
@@ -49,14 +49,14 @@
      * @param  {Function} fn
      * @param  {boolean}  bubbling
      */
-    var addEvent = function (el, evt, fn, bubble) {
+    var addEvent = function(el, evt, fn, bubble) {
         if ("addEventListener" in el) {
           // BBOS6 doesn't support handleEvent, catch and polyfill
           try {
             el.addEventListener(evt, fn, bubble);
           } catch (e) {
             if (typeof fn === "object" && fn.handleEvent) {
-              el.addEventListener(evt, function (e) {
+              el.addEventListener(evt, function(e) {
                 // Bind fn as this and set first arg as event object
                 fn.handleEvent.call(fn, e);
               }, bubble);
@@ -67,7 +67,7 @@
         } else if ("attachEvent" in el) {
           // check if the callback is an object and contains handleEvent
           if (typeof fn === "object" && fn.handleEvent) {
-            el.attachEvent("on" + evt, function () {
+            el.attachEvent("on" + evt, function() {
               // Bind fn as this
               fn.handleEvent.call(fn);
             });
@@ -76,7 +76,7 @@
           }
         }
       },
-    
+
       /**
        * Remove Event
        *
@@ -85,13 +85,13 @@
        * @param  {Function} fn
        * @param  {boolean}  bubbling
        */
-      removeEvent = function (el, evt, fn, bubble) {
+      removeEvent = function(el, evt, fn, bubble) {
         if ("removeEventListener" in el) {
           try {
             el.removeEventListener(evt, fn, bubble);
           } catch (e) {
             if (typeof fn === "object" && fn.handleEvent) {
-              el.removeEventListener(evt, function (e) {
+              el.removeEventListener(evt, function(e) {
                 fn.handleEvent.call(fn, e);
               }, bubble);
             } else {
@@ -100,7 +100,7 @@
           }
         } else if ("detachEvent" in el) {
           if (typeof fn === "object" && fn.handleEvent) {
-            el.detachEvent("on" + evt, function () {
+            el.detachEvent("on" + evt, function() {
               fn.handleEvent.call(fn);
             });
           } else {
@@ -108,14 +108,14 @@
           }
         }
       },
-    
+
       /**
        * Get the children of any element
        *
        * @param  {element}
        * @return {array} Returns matching elements in an array
        */
-      getChildren = function (e) {
+      getChildren = function(e) {
         if (e.children.length < 1) {
           throw new Error("The Nav container has no containing elements");
         }
@@ -129,43 +129,43 @@
         }
         return children;
       },
-    
+
       /**
        * Sets multiple attributes at once
        *
        * @param {element} element
        * @param {attrs}   attrs
        */
-      setAttributes = function (el, attrs) {
+      setAttributes = function(el, attrs) {
         for (var key in attrs) {
           el.setAttribute(key, attrs[key]);
         }
       },
-    
+
       /**
        * Adds a class to any element
        *
        * @param {element} element
        * @param {string}  class
        */
-      addClass = function (el, cls) {
+      addClass = function(el, cls) {
         if (el.className.indexOf(cls) !== 0) {
           el.className += " " + cls;
-          el.className = el.className.replace(/(^\s*)|(\s*$)/g,"");
+          el.className = el.className.replace(/(^\s*)|(\s*$)/g, "");
         }
       },
-    
+
       /**
        * Remove a class from any element
        *
        * @param  {element} element
        * @param  {string}  class
        */
-      removeClass = function (el, cls) {
+      removeClass = function(el, cls) {
         var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
-        el.className = el.className.replace(reg, " ").replace(/(^\s*)|(\s*$)/g,"");
+        el.className = el.className.replace(reg, " ").replace(/(^\s*)|(\s*$)/g, "");
       },
-    
+
       /**
        * forEach method that passes back the stuff we need
        *
@@ -173,7 +173,7 @@
        * @param  {Function} callback
        * @param  {scope}    scope
        */
-      forEach = function (array, callback, scope) {
+      forEach = function(array, callback, scope) {
         for (var i = 0; i < array.length; i++) {
           callback.call(scope, i, array[i]);
         }
@@ -188,70 +188,70 @@
       isMobile,
       navOpen;
 
-    var ResponsiveNav = function (el, options) {
-        var i;
+    var ResponsiveNav = function(el, options) {
+      var i;
 
-        /**
-         * Default options
-         * @type {Object}
-         */
-        this.options = {
-          animate: true,                    // Boolean: Use CSS3 transitions, true or false
-          transition: 284,                  // Integer: Speed of the transition, in milliseconds
-          label: "Menu",                    // String: Label for the navigation toggle
-          insert: "before",                 // String: Insert the toggle before or after the navigation
-          customToggle: "",                 // Selector: Specify the ID of a custom toggle
-          closeOnNavClick: false,           // Boolean: Close the navigation when one of the links are clicked
-          openPos: "relative",              // String: Position of the opened nav, relative or static
-          navClass: "nav-collapse",         // String: Default CSS class. If changed, you need to edit the CSS too!
-          navActiveClass: "js-nav-active",  // String: Class that is added to <html> element when nav is active
-          jsClass: "js",                    // String: 'JS enabled' class which is added to <html> element
-          init: function(){},               // Function: Init callback
-          open: function(){},               // Function: Open callback
-          close: function(){}               // Function: Close callback
-        };
+      /**
+       * Default options
+       * @type {Object}
+       */
+      this.options = {
+        animate: true, // Boolean: Use CSS3 transitions, true or false
+        transition: 284, // Integer: Speed of the transition, in milliseconds
+        label: "Menu", // String: Label for the navigation toggle
+        insert: "before", // String: Insert the toggle before or after the navigation
+        customToggle: "", // Selector: Specify the ID of a custom toggle
+        closeOnNavClick: false, // Boolean: Close the navigation when one of the links are clicked
+        openPos: "relative", // String: Position of the opened nav, relative or static
+        navClass: "nav-collapse", // String: Default CSS class. If changed, you need to edit the CSS too!
+        navActiveClass: "js-nav-active", // String: Class that is added to <html> element when nav is active
+        jsClass: "js", // String: 'JS enabled' class which is added to <html> element
+        init: function() {}, // Function: Init callback
+        open: function() {}, // Function: Open callback
+        close: function() {} // Function: Close callback
+      };
 
-        // User defined options
-        for (i in options) {
-          this.options[i] = options[i];
-        }
+      // User defined options
+      for (i in options) {
+        this.options[i] = options[i];
+      }
 
-        // Adds "js" class for <html>
-        addClass(htmlEl, this.options.jsClass);
+      // Adds "js" class for <html>
+      addClass(htmlEl, this.options.jsClass);
 
-        // Wrapper
-        this.wrapperEl = el.replace("#", "");
+      // Wrapper
+      this.wrapperEl = el.replace("#", "");
 
-        // Try selecting ID first
-        if (document.getElementById(this.wrapperEl)) {
-          this.wrapper = document.getElementById(this.wrapperEl);
+      // Try selecting ID first
+      if (document.getElementById(this.wrapperEl)) {
+        this.wrapper = document.getElementById(this.wrapperEl);
 
         // If element with an ID doesn't exist, use querySelector
-        } else if (document.querySelector(this.wrapperEl)) {
-          this.wrapper = document.querySelector(this.wrapperEl);
+      } else if (document.querySelector(this.wrapperEl)) {
+        this.wrapper = document.querySelector(this.wrapperEl);
 
         // If element doesn't exists, stop here.
-        } else {
-          throw new Error("The nav element you are trying to select doesn't exist");
-        }
+      } else {
+        throw new Error("The nav element you are trying to select doesn't exist");
+      }
 
-        // Inner wrapper
-        this.wrapper.inner = getChildren(this.wrapper);
+      // Inner wrapper
+      this.wrapper.inner = getChildren(this.wrapper);
 
-        // For minification
-        opts = this.options;
-        nav = this.wrapper;
+      // For minification
+      opts = this.options;
+      nav = this.wrapper;
 
-        // Init
-        this._init(this);
-      };
+      // Init
+      this._init(this);
+    };
 
     ResponsiveNav.prototype = {
 
       /**
        * Unattaches events and removes any classes that were added
        */
-      destroy: function () {
+      destroy: function() {
         this._removeStyles();
         removeClass(nav, "closed");
         removeClass(nav, "opened");
@@ -280,7 +280,7 @@
       /**
        * Toggles the navigation open/close
        */
-      toggle: function () {
+      toggle: function() {
         if (hasAnimFinished === true) {
           if (!navOpen) {
             this.open();
@@ -293,14 +293,14 @@
       /**
        * Opens the navigation
        */
-      open: function () {
+      open: function() {
         if (!navOpen) {
           removeClass(nav, "closed");
           addClass(nav, "opened");
           addClass(htmlEl, opts.navActiveClass);
           addClass(navToggle, "active");
           nav.style.position = opts.openPos;
-          setAttributes(nav, {"aria-hidden": "false"});
+          setAttributes(nav, { "aria-hidden": "false" });
           navOpen = true;
           opts.open();
         }
@@ -309,23 +309,23 @@
       /**
        * Closes the navigation
        */
-      close: function () {
+      close: function() {
         if (navOpen) {
           addClass(nav, "closed");
           removeClass(nav, "opened");
           removeClass(htmlEl, opts.navActiveClass);
           removeClass(navToggle, "active");
-          setAttributes(nav, {"aria-hidden": "true"});
+          setAttributes(nav, { "aria-hidden": "true" });
 
           // If animations are enabled, wait until they finish
           if (opts.animate) {
             hasAnimFinished = false;
-            setTimeout(function () {
+            setTimeout(function() {
               nav.style.position = "absolute";
               hasAnimFinished = true;
             }, opts.transition + 10);
 
-          // Animations aren't enabled, we can do these immediately
+            // Animations aren't enabled, we can do these immediately
           } else {
             nav.style.position = "absolute";
           }
@@ -339,17 +339,17 @@
        * Resize is called on window resize and orientation change.
        * It initializes the CSS styles and height calculations.
        */
-      resize: function () {
+      resize: function() {
 
         // Resize watches navigation toggle's display state
         if (window.getComputedStyle(navToggle, null).getPropertyValue("display") !== "none") {
 
           isMobile = true;
-          setAttributes(navToggle, {"aria-hidden": "false"});
+          setAttributes(navToggle, { "aria-hidden": "false" });
 
           // If the navigation is hidden
           if (nav.className.match(/(^|\s)closed(\s|$)/)) {
-            setAttributes(nav, {"aria-hidden": "true"});
+            setAttributes(nav, { "aria-hidden": "true" });
             nav.style.position = "absolute";
           }
 
@@ -358,8 +358,8 @@
         } else {
 
           isMobile = false;
-          setAttributes(navToggle, {"aria-hidden": "true"});
-          setAttributes(nav, {"aria-hidden": "false"});
+          setAttributes(navToggle, { "aria-hidden": "true" });
+          setAttributes(nav, { "aria-hidden": "false" });
           nav.style.position = opts.openPos;
           this._removeStyles();
         }
@@ -371,37 +371,37 @@
        * @param  {event} event
        * @return {type} returns the type of event that should be used
        */
-      handleEvent: function (e) {
+      handleEvent: function(e) {
         var evt = e || window.event;
 
         switch (evt.type) {
-        case "touchstart":
-          this._onTouchStart(evt);
-          break;
-        case "touchmove":
-          this._onTouchMove(evt);
-          break;
-        case "touchend":
-        case "mouseup":
-          this._onTouchEnd(evt);
-          break;
-        case "click":
-          this._preventDefault(evt);
-          break;
-        case "keyup":
-          this._onKeyUp(evt);
-          break;
-        case "focus":
-        case "resize":
-          this.resize(evt);
-          break;
+          case "touchstart":
+            this._onTouchStart(evt);
+            break;
+          case "touchmove":
+            this._onTouchMove(evt);
+            break;
+          case "touchend":
+          case "mouseup":
+            this._onTouchEnd(evt);
+            break;
+          case "click":
+            this._preventDefault(evt);
+            break;
+          case "keyup":
+            this._onKeyUp(evt);
+            break;
+          case "focus":
+          case "resize":
+            this.resize(evt);
+            break;
         }
       },
 
       /**
        * Initializes the widget
        */
-      _init: function () {
+      _init: function() {
         this.index = index++;
 
         addClass(nav, opts.navClass);
@@ -421,7 +421,7 @@
          * calculated styles are correct.
          */
         var self = this;
-        setTimeout(function () {
+        setTimeout(function() {
           self.resize();
         }, 20);
 
@@ -443,7 +443,7 @@
       /**
        * Creates Styles to the <head>
        */
-      _createStyles: function () {
+      _createStyles: function() {
         if (!styleElement.parentNode) {
           styleElement.type = "text/css";
           document.getElementsByTagName("head")[0].appendChild(styleElement);
@@ -453,7 +453,7 @@
       /**
        * Removes styles from the <head>
        */
-      _removeStyles: function () {
+      _removeStyles: function() {
         if (styleElement.parentNode) {
           styleElement.parentNode.removeChild(styleElement);
         }
@@ -462,7 +462,7 @@
       /**
        * Creates Navigation Toggle
        */
-      _createToggle: function () {
+      _createToggle: function() {
 
         // If there's no toggle, let's create one
         if (!opts.customToggle) {
@@ -482,7 +482,7 @@
 
           navToggle = toggle;
 
-        // There is a toggle already, let's use that one
+          // There is a toggle already, let's use that one
         } else {
           var toggleEl = opts.customToggle.replace("#", "");
 
@@ -499,12 +499,12 @@
       /**
        * Closes the navigation when a link inside is clicked.
        */
-      _closeOnNavClick: function () {
+      _closeOnNavClick: function() {
         if (opts.closeOnNavClick) {
           var links = nav.getElementsByTagName("a"),
             self = this;
-          forEach(links, function (i, el) {
-            addEvent(links[i], "click", function () {
+          forEach(links, function(i, el) {
+            addEvent(links[i], "click", function() {
               if (isMobile) {
                 self.toggle();
               }
@@ -523,11 +523,11 @@
           if (e.stopImmediatePropagation) {
             e.stopImmediatePropagation();
           }
-          e.preventDefault();
+          // e.preventDefault();
           e.stopPropagation();
           return false;
 
-        // This is strictly for old IE
+          // This is strictly for old IE
         } else {
           e.returnValue = false;
         }
@@ -538,7 +538,7 @@
        *
        * @param  {event} event
        */
-      _onTouchStart: function (e) {
+      _onTouchStart: function(e) {
         if (!Event.prototype.stopImmediatePropagation) {
           this._preventDefault(e);
         }
@@ -558,9 +558,9 @@
        *
        * @param  {event} event
        */
-      _onTouchMove: function (e) {
+      _onTouchMove: function(e) {
         if (Math.abs(e.touches[0].clientX - this.startX) > 10 ||
-        Math.abs(e.touches[0].clientY - this.startY) > 10) {
+          Math.abs(e.touches[0].clientY - this.startY) > 10) {
           this.touchHasMoved = true;
         }
       },
@@ -570,7 +570,7 @@
        *
        * @param  {event} event
        */
-      _onTouchEnd: function (e) {
+      _onTouchEnd: function(e) {
         this._preventDefault(e);
         if (!isMobile) {
           return;
@@ -584,7 +584,7 @@
             this.toggle();
             return;
 
-          // Event type was click, not touch
+            // Event type was click, not touch
           } else {
             var evt = e || window.event;
 
@@ -602,7 +602,7 @@
        *
        * @param  {event} event
        */
-      _onKeyUp: function (e) {
+      _onKeyUp: function(e) {
         var evt = e || window.event;
         if (evt.keyCode === 13) {
           this.toggle();
@@ -612,15 +612,15 @@
       /**
        * Adds the needed CSS transitions if animations are enabled
        */
-      _transitions: function () {
+      _transitions: function() {
         if (opts.animate) {
           var objStyle = nav.style,
             transition = "max-height " + opts.transition + "ms";
 
           objStyle.WebkitTransition =
-          objStyle.MozTransition =
-          objStyle.OTransition =
-          objStyle.transition = transition;
+            objStyle.MozTransition =
+            objStyle.OTransition =
+            objStyle.transition = transition;
         }
       },
 
@@ -628,7 +628,7 @@
        * Calculates the height of the navigation and then creates
        * styles which are later added to the page <head>
        */
-      _calcHeight: function () {
+      _calcHeight: function() {
         var savedHeight = 0;
         for (var i = 0; i < nav.inner.length; i++) {
           savedHeight += nav.inner[i].offsetHeight;

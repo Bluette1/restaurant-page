@@ -53,11 +53,24 @@ a:hover {
   height: 800px;
 }
 
-.nav-item {
+.menu-background {
+  background: url('../../public/images/menu_image.jpeg');
+  height: 800px;
+}
+
+.contact-background {
+  background: url('../../public/images/contact_image.jpeg');
+  height: 800px;
+}
+
+.nav-item,
+.current {
   cursor: pointer;
 }
 
-.home-title {
+.home-title,
+.menu-title,
+.contact-title {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
