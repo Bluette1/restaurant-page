@@ -24,6 +24,9 @@
     "url": "https://github.com/bluette1/restaurant-page/issues"
   },
   "homepage": "https://github.com/bluette1/restaurant-page#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
   "devDependencies": {
     "babel-eslint": "10.1.x",
     "babel-loader": "^8.1.0",
@@ -32,7 +35,6 @@
     "eslint": "6.8.x",
     "eslint-config-airbnb-base": "14.1.x",
     "eslint-plugin-import": "2.20.x",
-    "express": "^4.17.1",
     "file-loader": "^6.1.0",
     "html-webpack-plugin": "^4.5.0",
     "normalize.css": "^8.0.1",
