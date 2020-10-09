@@ -18,6 +18,8 @@ jobs:
         run: npm install --save-dev html-webpack-plugin
       - name: Install clean-webpack-plugin
         run: npm install --save-dev clean-webpack-plugin
+      - name: Install express
+        run: npm install express
       - name: Setup ESLint
         run: |
           npm install --save-dev eslint@6.8.x eslint-config-airbnb-base@14.1.x eslint-plugin-import@2.20.x
