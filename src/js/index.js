@@ -12,28 +12,28 @@ titleStr.setAttribute('class', 'title');
 content.appendChild(titleStr);
 
 const navItems = [
-  { href: '#', text: 'Home' },
-  { href: '#', text: 'Menu List' },
-  { href: '#', text: 'Contact' },
+  { content: homeContent, text: 'Home' },
+  { content: menuContent, text: 'Menu List' },
+  { content: contactContent, text: 'Contact' },
 ];
-
 
 const navElem = document.createElement('nav');
 const navList = document.createElement('ul');
 let navItem;
-let
-  navLink;
 
 navElem.appendChild(navList);
 
 for (let i = 0; i < navItems.length; i += 1) {
   navItem = document.createElement('li');
-  navLink = document.createElement('a');
 
-  navLink.href = navItems[i].href;
-  navLink.textContent = navItems[i].text;
+  navItem.textContent = navItems[i].text;
+  const pageContent = navItems[i].content;
+  navItem.setAttribute('class', 'nav-item');
 
-  navItem.appendChild(navLink);
+  navItem.addEventListener('click', () => {
+    clear();
+    pageContent(content);
+  });
   navList.appendChild(navItem);
 }
 
@@ -41,6 +41,7 @@ navList.children[0].className = 'current';
 navElem.setAttribute('class', 'nav-collapse');
 content.appendChild(navElem);
 responsiveNavBar('.nav-collapse');
-homeContent(content);
-menuContent(content);
-contactContent(content);
+
+const clear = () => {
+  content.innerHTml = '';
+}

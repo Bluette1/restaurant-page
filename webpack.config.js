@@ -10,19 +10,19 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.js/,
-      use: 'babel-loader',
-    },
-    {
-      test: /\.css/,
-      use: ['style-loader', 'css-loader'],
-    },
-    {
-      test: /\.(png|svg|jpg|gif)$/,
-      use: [
-        'file-loader',
-      ],
-    },
+        test: /\.js/,
+        use: 'babel-loader',
+      },
+      {
+        test: /\.css/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|gif|jpeg|)$/,
+        use: [
+          'file-loader',
+        ],
+      },
     ],
   },
   plugins: [
