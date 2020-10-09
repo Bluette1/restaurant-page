@@ -10,7 +10,8 @@
     "stylelint-f": "npx stylelint **/*.{css,scss} --fix",
     "eslint": "eslint .",
     "eslint-f": "eslint . --fix",
-    "start": "webpack-dev-server"
+    "dev-start": "webpack-dev-server",
+    "start": "npm run build && NODE_ENV=production node server.js"
   },
   "keywords": [
     "webpack",
@@ -31,6 +32,7 @@
     "eslint": "6.8.x",
     "eslint-config-airbnb-base": "14.1.x",
     "eslint-plugin-import": "2.20.x",
+    "express": "^4.17.1",
     "file-loader": "^6.1.0",
     "html-webpack-plugin": "^4.5.0",
     "normalize.css": "^8.0.1",
