@@ -1,3 +1,4 @@
+@import url(//fonts.googleapis.com/css?family=Great+Vibes);
 html {
   box-sizing: border-box;
 }
@@ -40,12 +41,13 @@ a:hover {
 }
 
 .title {
-  font-size: 2.2rem;
+  font-size: 3.2rem;
   font-weight: 500;
   font-style: italic;
-  margin-top: 30px;
+  margin-top: 50px;
   text-align: center;
   line-height: 2rem;
+  font-family: 'Great Vibes';
 }
 
 .home-background {
@@ -74,4 +76,13 @@ a:hover {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
+  font-family: 'Great Vibes';
+  font-size: 2.2rem;
+}
+
+li {
+  padding-top: 30px;
+  margin-left: 20px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
 }
