@@ -14,8 +14,8 @@ const menuContent = (content) => {
   divEl.appendChild(leftBackground);
   divEl.appendChild(centralBackground);
   divEl.appendChild(rightBackground);
-  content.appendChild(divEl)
-}
+  content.appendChild(divEl);
+};
 
 
 export default menuContent;

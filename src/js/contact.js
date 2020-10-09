@@ -1,5 +1,4 @@
 const contactContent = (content) => {
-
   const contactTitle = document.createElement('h4');
   contactTitle.textContent = '+27 7875 090 123';
   contactTitle.setAttribute('class', 'contact-title');
@@ -17,7 +16,7 @@ const contactContent = (content) => {
   divEl.appendChild(centralBackground);
   divEl.appendChild(rightBackground);
   content.appendChild(divEl);
-}
+};
 
 
 export default contactContent;

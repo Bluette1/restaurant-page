@@ -1,4 +1,5 @@
 @import url(//fonts.googleapis.com/css?family=Great+Vibes);
+
 html {
   box-sizing: border-box;
 }
@@ -47,7 +48,7 @@ a:hover {
   margin-top: 10px;
   text-align: center;
   line-height: 2rem;
-  font-family: 'Great Vibes';
+  font-family: 'Great Vibes', Arial, Helvetica, sans-serif;
 }
 
 .background {
@@ -113,45 +114,54 @@ a:hover {
     grid-template-columns: repeat(2, 1fr);
     max-height: 709px;
   }
+
   .left-home-background {
     grid-column: 1/2;
     background: url('../../public/images/home_left.jpeg') no-repeat;
     margin-right: 20px;
   }
+
   .center-home-background {
     grid-column: 2/3;
     background: url('../../public/images/home_image.jpeg') no-repeat;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
+
   .right-home-background {
     display: none;
   }
+
   .left-menu-background {
     grid-column: 1/2;
     background: url('../../public/images/menu_left_image.jpeg') no-repeat;
     margin-right: 20px;
   }
+
   .center-menu-background {
     grid-column: 2/3;
     background: url('../../public/images/menu_image.jpeg') no-repeat;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
+
   .right-menu-background {
     display: none;
   }
+
   .left-contact-background {
     grid-column: 1/2;
     background: url('../../public/images/contact_left.jpeg') no-repeat;
     margin-right: 20px;
   }
+
   .center-contact-background {
     grid-column: 2/3;
     background: url('../../public/images/contact_image.jpeg') no-repeat;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
+
   .right-contact-background {
     display: none;
   }
@@ -163,48 +173,57 @@ a:hover {
     grid-template-columns: repeat(3, 1fr);
     max-height: 600px;
   }
+
   .left-home-background {
     grid-column: 1/2;
     background: url('../../public/images/home_left.jpeg') no-repeat;
     margin-right: 20px;
   }
+
   .center-home-background {
     grid-column: 2/3;
     background: url('../../public/images/home_image.jpeg') no-repeat;
     margin-right: 20px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
+
   .right-home-background {
     display: block;
     background: url('../../public/images/home_right.jpeg') no-repeat;
   }
+
   .left-menu-background {
     grid-column: 1/2;
     background: url('../../public/images/menu_left_image.jpeg') no-repeat;
   }
+
   .center-menu-background {
     grid-column: 2/3;
     background: url('../../public/images/menu_image.jpeg') no-repeat;
     margin-right: 20px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
+
   .right-menu-background {
     display: block;
     background: url('../../public/images/menu_right.jpeg') no-repeat;
   }
+
   .left-contact-background {
     grid-column: 1/2;
     background: url('../../public/images/contact_left.jpeg') no-repeat;
   }
+
   .center-contact-background {
     grid-column: 2/3;
     background: url('../../public/images/contact_image.jpeg') no-repeat;
     margin-right: 20px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
+
   .right-contact-background {
     display: block;
     background: url('../../public/images/contact_right.jpeg') no-repeat;
@@ -229,7 +248,7 @@ a:hover {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
-  font-family: 'Great Vibes';
+  font-family: 'Great Vibes', Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
 }
 

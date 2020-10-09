@@ -1,16 +1,18 @@
 import responsiveNavBar from '../../public/js/responsive-nav-master.js/responsive-nav';
 import '../../public/js/responsive-nav-master.js/responsive-nav.css';
-import '../../public/bootstrap-4.3.1-dist/css/bootstrap.min.css'
+import '../../public/bootstrap-4.3.1-dist/css/bootstrap.min.css';
 import '../css/index.css';
-import '../../public/prefixfree.min.js';
+import '../../public/prefixfree.min';
 import homeContent from './home';
 import menuContent from './menu';
 import contactContent from './contact';
 
 const content = document.querySelector('#content');
-const pageTitle = document.querySelector('#title');
-const pageDiv = document.querySelector('#background');
 const titleStr = document.createElement('h2');
+
+const clear = () => {
+  content.textContent = '';
+};
 
 const navItems = [
   { content: homeContent, text: 'Home' },
@@ -46,7 +48,3 @@ titleStr.setAttribute('class', 'title');
 titleStr.after(navElem);
 homeContent(content);
 responsiveNavBar('.nav-collapse', { label: 'MENU' });
-
-const clear = () => {
-  content.textContent = '';
-}
