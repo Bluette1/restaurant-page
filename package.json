@@ -11,7 +11,7 @@
     "eslint": "eslint .",
     "eslint-f": "eslint . --fix",
     "dev-start": "webpack-dev-server",
-    "start": "npm run build && NODE_ENV=production node server.js"
+    "start": "yarn build && NODE_ENV=production node server.js"
   },
   "keywords": [
     "webpack",
