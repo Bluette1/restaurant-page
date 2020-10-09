@@ -5,9 +5,18 @@ const contactContent = (content) => {
   contactTitle.setAttribute('class', 'contact-title');
   content.appendChild(contactTitle);
   const divEl = document.createElement('div');
-  divEl.setAttribute('class', 'contact-background');
-  content.appendChild(divEl)
-
+  // divEl.setAttribute('class', 'contact-background');
+  divEl.setAttribute('class', 'background');
+  const leftBackground = document.createElement('div');
+  const rightBackground = document.createElement('div');
+  const centralBackground = document.createElement('div');
+  leftBackground.setAttribute('class', 'left-contact-background');
+  rightBackground.setAttribute('class', 'right-contact-background');
+  centralBackground.setAttribute('class', 'center-contact-background');
+  divEl.appendChild(leftBackground);
+  divEl.appendChild(centralBackground);
+  divEl.appendChild(rightBackground);
+  content.appendChild(divEl);
 }
 
 
