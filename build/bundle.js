@@ -167,6 +167,30 @@ eval("var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/run
 
 /***/ }),
 
+/***/ "./src/js/contact.js":
+/*!***************************!*\
+  !*** ./src/js/contact.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst contactContent = content => {\n  // function that creates a div element, adds the appropriate content\n  // and styles to that element and then appends it to the DOM.\n  const divEl = document.createElement('div');\n  divEl.textContent = 'Contact Page';\n  content.appendChild(divEl);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (contactContent);\n\n//# sourceURL=webpack:///./src/js/contact.js?");
+
+/***/ }),
+
+/***/ "./src/js/home.js":
+/*!************************!*\
+  !*** ./src/js/home.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst homeContent = content => {\n  // function that creates a div element, adds the appropriate content\n  // and styles to that element and then appends it to the DOM.\n  const divEl = document.createElement('div');\n  divEl.textContent = 'Home Page';\n  content.appendChild(divEl);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (homeContent);\n\n//# sourceURL=webpack:///./src/js/home.js?");
+
+/***/ }),
+
 /***/ "./src/js/index.js":
 /*!*************************!*\
   !*** ./src/js/index.js ***!
@@ -175,7 +199,19 @@ eval("var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/run
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/index.css */ \"./src/css/index.css\");\n/* harmony import */ var _css_index_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_index_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _public_js_responsive_nav_master_js_responsive_nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../public/js/responsive-nav-master.js/responsive-nav */ \"./public/js/responsive-nav-master.js/responsive-nav.js\");\n/* harmony import */ var _public_js_responsive_nav_master_js_responsive_nav__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_public_js_responsive_nav_master_js_responsive_nav__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _public_js_responsive_nav_master_js_responsive_nav_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../public/js/responsive-nav-master.js/responsive-nav.css */ \"./public/js/responsive-nav-master.js/responsive-nav.css\");\n/* harmony import */ var _public_js_responsive_nav_master_js_responsive_nav_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_public_js_responsive_nav_master_js_responsive_nav_css__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nconst content = document.querySelector('#content');\nconst titleStr = document.createElement('h2');\ntitleStr.textContent = 'Eat Well Shade';\ntitleStr.setAttribute('class', 'title');\ncontent.appendChild(titleStr);\nconst navItems = [{\n  href: '#',\n  text: 'Home'\n}, {\n  href: '#',\n  text: 'Menu List'\n}, {\n  href: '#',\n  text: 'Contact'\n}];\nconst navElem = document.createElement('nav');\nconst navList = document.createElement('ul');\nlet navItem;\nlet navLink;\nnavElem.appendChild(navList);\n\nfor (let i = 0; i < navItems.length; i += 1) {\n  navItem = document.createElement('li');\n  navLink = document.createElement('a');\n  navLink.href = navItems[i].href;\n  navLink.textContent = navItems[i].text;\n  navItem.appendChild(navLink);\n  navList.appendChild(navItem);\n}\n\nnavList.children[0].className = 'current';\nnavElem.setAttribute('class', 'nav-collapse');\ncontent.appendChild(navElem);\n_public_js_responsive_nav_master_js_responsive_nav__WEBPACK_IMPORTED_MODULE_1___default()('.nav-collapse');\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/index.css */ \"./src/css/index.css\");\n/* harmony import */ var _css_index_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_index_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _public_js_responsive_nav_master_js_responsive_nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../public/js/responsive-nav-master.js/responsive-nav */ \"./public/js/responsive-nav-master.js/responsive-nav.js\");\n/* harmony import */ var _public_js_responsive_nav_master_js_responsive_nav__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_public_js_responsive_nav_master_js_responsive_nav__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _public_js_responsive_nav_master_js_responsive_nav_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../public/js/responsive-nav-master.js/responsive-nav.css */ \"./public/js/responsive-nav-master.js/responsive-nav.css\");\n/* harmony import */ var _public_js_responsive_nav_master_js_responsive_nav_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_public_js_responsive_nav_master_js_responsive_nav_css__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home */ \"./src/js/home.js\");\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./menu */ \"./src/js/menu.js\");\n/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./contact */ \"./src/js/contact.js\");\n\n\n\n\n\n\nconst content = document.querySelector('#content');\nconst titleStr = document.createElement('h2');\ntitleStr.textContent = 'Eat Well Shade';\ntitleStr.setAttribute('class', 'title');\ncontent.appendChild(titleStr);\nconst navItems = [{\n  href: '#',\n  text: 'Home'\n}, {\n  href: '#',\n  text: 'Menu List'\n}, {\n  href: '#',\n  text: 'Contact'\n}];\nconst navElem = document.createElement('nav');\nconst navList = document.createElement('ul');\nlet navItem;\nlet navLink;\nnavElem.appendChild(navList);\n\nfor (let i = 0; i < navItems.length; i += 1) {\n  navItem = document.createElement('li');\n  navLink = document.createElement('a');\n  navLink.href = navItems[i].href;\n  navLink.textContent = navItems[i].text;\n  navItem.appendChild(navLink);\n  navList.appendChild(navItem);\n}\n\nnavList.children[0].className = 'current';\nnavElem.setAttribute('class', 'nav-collapse');\ncontent.appendChild(navElem);\n_public_js_responsive_nav_master_js_responsive_nav__WEBPACK_IMPORTED_MODULE_1___default()('.nav-collapse');\nObject(_home__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(content);\nObject(_menu__WEBPACK_IMPORTED_MODULE_4__[\"default\"])(content);\nObject(_contact__WEBPACK_IMPORTED_MODULE_5__[\"default\"])(content);\n\n//# sourceURL=webpack:///./src/js/index.js?");
+
+/***/ }),
+
+/***/ "./src/js/menu.js":
+/*!************************!*\
+  !*** ./src/js/menu.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst menuContent = content => {\n  // function that creates a div element, adds the appropriate content\n  // and styles to that element and then appends it to the DOM.\n  const divEl = document.createElement('div');\n  divEl.textContent = 'Menu Page';\n  content.appendChild(divEl);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (menuContent);\n\n//# sourceURL=webpack:///./src/js/menu.js?");
 
 /***/ })
 

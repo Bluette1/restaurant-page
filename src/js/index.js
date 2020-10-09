@@ -1,6 +1,9 @@
 import '../css/index.css';
 import responsiveNavBar from '../../public/js/responsive-nav-master.js/responsive-nav';
 import '../../public/js/responsive-nav-master.js/responsive-nav.css';
+import homeContent from './home';
+import menuContent from './menu';
+import contactContent from './contact';
 
 const content = document.querySelector('#content');
 const titleStr = document.createElement('h2');
@@ -38,3 +41,6 @@ navList.children[0].className = 'current';
 navElem.setAttribute('class', 'nav-collapse');
 content.appendChild(navElem);
 responsiveNavBar('.nav-collapse');
+homeContent(content);
+menuContent(content);
+contactContent(content);
