@@ -17,6 +17,12 @@
     "nodejs"
   ],
   "author": "marylene",
+
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bluette1/restaurant-page/issues"
+  },
+  "homepage": "https://github.com/bluette1/restaurant-page#readme",
   "devDependencies": {
     "babel-eslint": "10.1.x",
     "babel-loader": "^8.1.0",
