@@ -9,7 +9,8 @@
     "stylelint": "npx stylelint **/*.{css,scss}",
     "stylelint-f": "npx stylelint **/*.{css,scss} --fix",
     "eslint": "eslint .",
-    "eslint-f": "eslint . --fix"
+    "eslint-f": "eslint . --fix",
+    "start": "webpack-dev-server"
   },
   "keywords": [
     "webpack",
@@ -17,7 +18,6 @@
     "nodejs"
   ],
   "author": "marylene",
-
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bluette1/restaurant-page/issues"
@@ -40,6 +40,7 @@
     "stylelint-csstree-validator": "^1.8.0",
     "stylelint-scss": "3.17.x",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
