@@ -14,6 +14,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "12.x"
+      - name: Install html-webpack-plugin
+        run: npm install --save-dev html-webpack-plugin
+      - name: Install clean-webpack-plugin
+        run: npm install --save-dev clean-webpack-plugin
       - name: Setup ESLint
         run: |
           npm install --save-dev eslint@6.8.x eslint-config-airbnb-base@14.1.x eslint-plugin-import@2.20.x
