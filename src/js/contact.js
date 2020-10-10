@@ -4,7 +4,6 @@ const contactContent = (content) => {
   contactTitle.setAttribute('class', 'contact-title');
   content.appendChild(contactTitle);
   const divEl = document.createElement('div');
-  // divEl.setAttribute('class', 'contact-background');
   divEl.setAttribute('class', 'background');
   const leftBackground = document.createElement('div');
   const rightBackground = document.createElement('div');
