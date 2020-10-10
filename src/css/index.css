@@ -176,7 +176,7 @@ a:hover {
 
   .left-home-background {
     grid-column: 1/2;
-    background: url('../../public/images/home_left.jpeg') no-repeat;
+    background: url('../../public/images/home_right.jpeg') no-repeat;
     margin-right: 20px;
   }
 
@@ -190,7 +190,7 @@ a:hover {
 
   .right-home-background {
     display: block;
-    background: url('../../public/images/home_right.jpeg') no-repeat;
+    background: url('../../public/images/home_left.jpeg') no-repeat;
   }
 
   .left-menu-background {

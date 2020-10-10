@@ -32,14 +32,14 @@ for (let i = 0; i < navItems.length; i += 1) {
   navItem.textContent = navItems[i].text;
   const pageContent = navItems[i].content;
   navItem.setAttribute('class', 'nav-item');
-
+  navItem.id = `li-${i}`;
+  navList.appendChild(navItem);
   navItem.onclick = () => {
     clear();
-    navItem.classList.add('active');
+    const navLiItem = document.querySelector(`#li-${i}`);
+    navLiItem.classList.add('active');
     pageContent(content);
   };
-  navList.appendChild(navItem);
-
 }
 
 navElem.setAttribute('class', 'nav-collapse nav-element');
