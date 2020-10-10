@@ -35,12 +35,13 @@ for (let i = 0; i < navItems.length; i += 1) {
 
   navItem.onclick = () => {
     clear();
+    navItem.classList.add('active');
     pageContent(content);
   };
   navList.appendChild(navItem);
+
 }
 
-navList.children[0].className = 'current';
 navElem.setAttribute('class', 'nav-collapse nav-element');
 document.body.insertBefore(titleStr, content);
 titleStr.textContent = 'Eat Well Shade';
