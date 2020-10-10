@@ -76,36 +76,36 @@ a:hover {
 
 .left-menu-background {
   grid-column: span 1;
-  background: url('../../public/images/menu_left_image.jpeg') 50% 100% no-repeat;
+  background: url('../../public/images/menu_left_image.jpeg') 50% 80% no-repeat;
 }
 
 .center-menu-background {
   grid-column: span 1;
-  background: url('../../public/images/menu_image.jpeg') 50% 100% no-repeat;
+  background: url('../../public/images/menu_image.jpeg') 50% 80% no-repeat;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .right-menu-background {
   grid-column: span 1;
-  background: url('../../public/images/menu_right.jpeg') 50% 100% no-repeat;
+  background: url('../../public/images/menu_right.jpeg') 50% 80% no-repeat;
 }
 
 .left-contact-background {
   grid-column: span 1;
-  background: url('../../public/images/contact_left.jpeg') 50% 100% no-repeat;
+  background: url('../../public/images/contact_left.jpeg') 50% 80% no-repeat;
 }
 
 .center-contact-background {
   grid-column: span 1;
-  background: url('../../public/images/contact_image.jpeg') 50% 100% no-repeat;
+  background: url('../../public/images/contact_image.jpeg') 50% 80% no-repeat;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .right-contact-background {
   grid-column: span 1;
-  background: url('../../public/images/contact_right.jpeg') 50% 100% no-repeat;
+  background: url('../../public/images/contact_right.jpeg') 50% 50% no-repeat;
 }
 
 @media only screen and (min-width: 768px) {
