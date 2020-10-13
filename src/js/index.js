@@ -48,5 +48,4 @@ titleStr.textContent = 'Eat Well Shade';
 titleStr.setAttribute('class', 'title');
 titleStr.after(navElem);
 homeContent(content);
-const menuIcon = '\u2630';
-responsiveNavBar('.nav-collapse', { label: menuIcon });
+responsiveNavBar('.nav-collapse', { label: '\u2630' });
